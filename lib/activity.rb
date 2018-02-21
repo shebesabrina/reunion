@@ -1,14 +1,12 @@
+require 'pry'
+
 class Activity
-  attr_reader :activity,
+  attr_reader :name,
               :price
 
-  def initialize(activity, price)
-    @activity = activity
-    @price = price
+  def initialize(argument)
+    @name = argument[:name]
+    @price = argument[:price]
   end
-
-  def participant(participant)
-    @price
-  end
-
+  
 end
