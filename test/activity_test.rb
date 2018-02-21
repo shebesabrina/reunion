@@ -18,4 +18,10 @@ class ActivityTest < Minitest::Test
     assert_equal "Anna", activity.name
   end
 
+  def test_it_can_split_cost
+    activity = Activity.new({price: 90, name:"Anna"})
+
+    assert_equal "Anna", activity.split_cost
+  end
+
 end
