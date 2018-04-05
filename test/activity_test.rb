@@ -6,22 +6,41 @@ require 'pry'
 
 class ActivityTest < Minitest::Test
 
+  def setup
+
+    @activity = Activity.new("comedy show")
+  end
+
+  def test_it_exists
+
+    assert_instance_of Activity, @activity
+  end
+
   def test_it_has_a_price
-    activity = Activity.new({price: 100, name: "Anna"})
+    result = {"George" => 20}
 
-    assert_equal 100, activity.price
+    @activity.add_participant("George", 20)
+    assert_equal result, @activity.participants
   end
 
-  def test_it_has_a_participant
-    activity = Activity.new({price: 100, name: "Anna"})
+  def test_activity_can_have_multiple_participants
 
-    assert_equal "Anna", activity.name
+    @activity.add_participant("George", 20)
+    @activity.add_participant("Anna", 10)
+    assert_equal 2, @activity.participants.count
   end
 
-  def test_it_can_split_cost
-    activity = Activity.new({price: 90, name:"Anna"})
+  def test_total_cost
+    @activity.add_participant("George", 20)
+    @activity.add_participant("Anna", 10)
 
-    assert_equal "Anna", activity.split_cost
+    assert_equal 30, @activity.total_cost
+  end
+
+  def test_amount_left_over
+    @activity.add_participant("Anna", 10)
+    
+    assert_equal 0, @activity.amount_owed?("Anna")
   end
 
 end
