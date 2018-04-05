@@ -39,8 +39,25 @@ class ActivityTest < Minitest::Test
 
   def test_amount_left_over
     @activity.add_participant("Anna", 10)
-    
+
     assert_equal 0, @activity.amount_owed?("Anna")
+  end
+
+  def test_multiple_left_over
+    @activity.add_participant("George", 20)
+    @activity.add_participant("Anna", 10)
+
+    assert_equal 5, @activity.amount_owed?("Anna")
+    assert_equal (-5), @activity.amount_owed?("George")
+  end
+
+  def test_left
+    
+    @activity.add_participant("George", 20)
+    @activity.add_participant("Anna", 10)
+    result = {"George" => -5, "Anna" => 5}
+
+    assert_equal result, @activity.return_cost
   end
 
 end

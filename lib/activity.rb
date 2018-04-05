@@ -2,13 +2,11 @@ require 'pry'
 
 class Activity
   attr_reader :name,
-              :participants,
-              :amount_owed
+              :participants
 
   def initialize(name)
     @name = name
     @participants = {}
-    @amount_owed ={}
   end
 
   def add_participant(name, amount_paid)
@@ -20,10 +18,7 @@ class Activity
   end
 
   def amount_owed?(participant)
-    (total_cost / participants.count) - @participants[participant]
+    (total_cost / @participants.count) - @participants[participant]
   end
 
-  # def amount_left_over(paid, owed)
-  #   @amount_owed[paid] = owed
-  # end
 end
