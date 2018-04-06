@@ -21,10 +21,10 @@ class Activity
     (total_cost / @participants.count) - @participants[participant]
   end
 
-  def return_cost(participant, amount_paid)
-    @participants.each do |name, paid|
-      participants[name] = amount_owed?(name)
-    end
+  def return_cost
+    @participants.map do |name, paid|
+      [name, amount_owed?(name)]
+    end.to_h
   end
 
 end

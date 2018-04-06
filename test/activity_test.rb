@@ -56,7 +56,7 @@ class ActivityTest < Minitest::Test
     @activity.add_participant("Anna", 10)
     result = {"George" => -5, "Anna" => 5}
 
-    assert_equal result, @activity.return_cost("George", 20)
+    assert_equal result, @activity.return_cost
   end
 
 end
