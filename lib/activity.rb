@@ -21,4 +21,10 @@ class Activity
     (total_cost / @participants.count) - @participants[participant]
   end
 
+  def return_cost(participant, amount_paid)
+    @participants.each do |name, paid|
+      participants[name] = amount_owed?(name)
+    end
+  end
+
 end
