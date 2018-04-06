@@ -1,0 +1,16 @@
+* You're trying to get us to learn how to use hashes with objects and methods.
+
+* I'm creating a reunion with an instance of the activity. The participants are
+stored in a hash with the participant as the key and the value starts off with
+the amount "chipped in" when I call the add_participant method. The amount_owed
+is based on the total amount "chipped in" divided by the total amount of
+participants. The amount_owed is then storing the new amount either as a positive
+or negative value. The return_cost iterating over the hash to then return the
+new cost per participant (amount_owed).
+
+* The most difficult portion was iterating over the hash because I'm more
+comfortable with iterating over arrays so I had to turn the new amount back into
+a hash.
+
+* I liked the math, turning the participants into a hash of key/values, and
+shoveling in the instance of an activity class into the reunion class. 
